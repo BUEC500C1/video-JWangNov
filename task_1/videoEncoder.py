@@ -1,12 +1,16 @@
-import os, sys, io
+import os
+import sys
+
 
 def encodeVideo(pathInput, pathOutput, resolution):
     if resolution == "0":
         # 480p at 1Mbps and 30fps
-        cmd = "ffmpeg -i " + pathInput +" " + pathOutput + " -c:a copy -c:v copy -r 30 -s hd4800 -b:v 1M"
+        cmd = "ffmpeg -i " + pathInput + " " + pathOutput
+        cmd += " -c:a copy -c:v copy -r 30 -s hd4800 -b:v 1M"
     if resolution == "1":
         # 720p at 2Mbps and 30fps
-        cmd = "ffmpeg -i " + pathInput +" " + pathOutput + " -c:a copy -c:v copy -r 30 -s hd720 -b:v 2M"
+        cmd = "ffmpeg -i " + pathInput + " " + pathOutput
+        cmd += " -c:a copy -c:v copy -r 30 -s hd720 -b:v 2M"
 
     try:
         os.system(cmd)
