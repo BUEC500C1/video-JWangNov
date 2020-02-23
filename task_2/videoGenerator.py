@@ -17,6 +17,7 @@ class VideoGen:
         self.user = user
         self.imgPath = f'./img_{user}'
         self.howManyTweets = howManyTweets
+        self.keys = keys
         cfg = configparser.ConfigParser()
         cfg.read(self.keys)
         self.consumer_key = cfg.get('auth', 'consumer_key').strip()
