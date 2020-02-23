@@ -7,9 +7,9 @@ from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
 
-KEY_PATH = './keys'
+KEY_PATH = r'./keys'
 # KEY_PATH = './myRealKeys'
-FONT_PATH = './28DaysLater.ttf'
+FONT_PATH = r'./28DaysLater.ttf'
 
 
 class VideoGen:
@@ -18,7 +18,7 @@ class VideoGen:
         self.imgPath = f'./img_{user}'
         self.howManyTweets = howManyTweets
         cfg = configparser.ConfigParser()
-        cfg.read(keys)
+        cfg.read(self.keys)
         self.consumer_key = cfg.get('auth', 'consumer_key').strip()
         self.consumer_secret = cfg.get('auth', 'consumer_secret').strip()
         self.access_token = cfg.get('auth', 'access_token').strip()
