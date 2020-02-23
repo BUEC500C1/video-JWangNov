@@ -1,6 +1,6 @@
-import cv2
 import configparser
 import os
+import cv2
 import tweepy
 
 from PIL import Image
