@@ -7,8 +7,8 @@ from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
 
-# KEY_PATH = "./keys"
-KEY_PATH = "./myRealKeys"
+KEY_PATH = "./keys"
+# KEY_PATH = "./myRealKeys"
 FONT_PATH = "./28DaysLater.ttf"
 
 
