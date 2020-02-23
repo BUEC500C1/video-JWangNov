@@ -7,19 +7,19 @@ from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
 
-KEY_PATH = r'./keys'
+# KEY_PATH = './keys'
 # KEY_PATH = './myRealKeys'
-FONT_PATH = r'./28DaysLater.ttf'
+FONT_PATH = './28DaysLater.ttf'
 
 
 class VideoGen:
-    def __init__(self, user, howManyTweets, keys=KEY_PATH):
+    def __init__(self, user, howManyTweets, keys='./keys'):
         self.user = user
         self.imgPath = f'./img_{user}'
         self.howManyTweets = howManyTweets
         self.keys = keys
         cfg = configparser.ConfigParser()
-        cfg.read(self.keys)
+        cfg.read(keys)
         self.consumer_key = cfg.get('auth', 'consumer_key').strip()
         self.consumer_secret = cfg.get('auth', 'consumer_secret').strip()
         self.access_token = cfg.get('auth', 'access_token').strip()
@@ -81,7 +81,7 @@ class VideoGen:
 def main():
     user = '@Bayern_mania'
     howManyTweets = 10
-    obj = VideoGen(user, howManyTweets, KEY_PATH)
+    obj = VideoGen(user, howManyTweets, './keys')
     obj.run()
 
 
