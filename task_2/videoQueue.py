@@ -18,14 +18,14 @@ class VideoQueue():
             self.processingItems.append(currT)
         else:
             self.myQueue.put(currT)
-            print(f"{username} is in queue now.")
+            print(f'{username} is in queue now.')
         return currT
 
     def genCurrVideo(self, username, howManyTweets):
         currVideo = VideoGen(username, howManyTweets)
-        print(f"Start generating {username}'s video.")
+        print(f'Start generating {username}\'s video.')
         currVideo.run()
-        print(f"{username} DONE")
+        print(f'{username} DONE')
 
     def run(self):
         while not self.myQueue.empty():
@@ -43,11 +43,11 @@ def main():
     pipelineNum = 2
     queueSize = 100
     obj = VideoQueue(pipelineNum, queueSize)
-    obj.getQueued("@LagavulinWhisky", 10)
-    obj.getQueued("@Laphroaig", 10)
-    obj.getQueued("@Kilchomanwhisky", 10)
-    obj.getQueued("@Benromach", 10)
-    obj.getQueued("@clydesidewhisky", 10)
+    obj.getQueued('@LagavulinWhisky', 10)
+    obj.getQueued('@Laphroaig', 10)
+    obj.getQueued('@Kilchomanwhisky', 10)
+    obj.getQueued('@Benromach', 10)
+    obj.getQueued('@clydesidewhisky', 10)
     obj.run()
 
 
