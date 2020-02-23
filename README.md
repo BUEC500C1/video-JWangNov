@@ -19,3 +19,11 @@ For example,
 you can run `python3 videoEncoder.py MonsterDrinkKebab.mp4 nu.mp4 1` in `this_repo/task_1`.
 
 Example video get from [here](https://www.youtube.com/watch?v=cw31vtWOXuk).
+
+
+## Task 2
+Build Twitter Video Generator in Queue Frame
+
+`videoGenerator.py` generates tweeter video from 1 user.
+
+`videoQueue.py` generates videos in queue frame.
