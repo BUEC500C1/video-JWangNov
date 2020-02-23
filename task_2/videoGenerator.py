@@ -20,10 +20,14 @@ class VideoGen:
         self.keys = keys
         cfg = configparser.ConfigParser()
         cfg.read(self.keys)
-        self.consumer_key = cfg.get('auth', 'consumer_key').strip()
-        self.consumer_secret = cfg.get('auth', 'consumer_secret').strip()
-        self.access_token = cfg.get('auth', 'access_token').strip()
-        self.access_secret = cfg.get('auth', 'access_secret').strip()
+        try:
+            self.consumer_key = cfg.get('auth', 'consumer_key').strip()
+            self.consumer_secret = cfg.get('auth', 'consumer_secret').strip()
+            self.access_token = cfg.get('auth', 'access_token').strip()
+            self.access_secret = cfg.get('auth', 'access_secret').strip()
+        except Exception as e:
+            print(str(e),' could not read configuration file')
+        
 
     def getTweets(self):
         auth = tweepy.OAuthHandler(self.consumer_key, self.consumer_secret)
