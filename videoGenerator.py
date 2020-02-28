@@ -42,7 +42,7 @@ class VideoGen:
         else:
             with open(JSON_LOCAL, 'r') as ff:
                 localJSON = json.load(ff)
-                tweetsCollection.append(localJSON.text)
+                tweetsCollection.append(localJSON['text'])
         return tweetsCollection
 
     def deleteUnwritable(self, input):
