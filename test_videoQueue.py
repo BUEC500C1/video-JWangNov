@@ -35,3 +35,7 @@ def test_001():
     for user in ll3:
         obj3.getQueued(user, howManyTweets)
     assert obj3.run() == 0
+
+
+def test_002():
+    pass

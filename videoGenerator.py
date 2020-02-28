@@ -1,6 +1,7 @@
 import configparser
 import os
 import cv2
+import json
 import tweepy
 
 from PIL import Image
@@ -10,6 +11,7 @@ from PIL import ImageDraw
 KEY_PATH = r'keys'
 # KEY_PATH = './myRealKeys'
 FONT_PATH = r'./28DaysLater.ttf'
+JSON_LOCAL = r'./local.json'
 
 
 class VideoGen:
@@ -27,17 +29,20 @@ class VideoGen:
             self.access_secret = cfg.get('auth', 'access_secret').strip()
         except Exception as e:
             print(str(e),' could not read configuration file')
-        
 
     def getTweets(self):
-        auth = tweepy.OAuthHandler(self.consumer_key, self.consumer_secret)
-        auth.set_access_token(self.access_token, self.access_secret)
-        myAPI = tweepy.API(auth)
         tweetsCollection = []
-        tweetsReceived = myAPI.user_timeline(screen_name=self.user, count=self.howManyTweets)
-        for ele in tweetsReceived:
-            # tweetsCollection = tweetsCollection + [ele.text]
-            tweetsCollection.append(ele.text)
+        if os.path.getsize(KEY_PATH) != 91:
+            auth = tweepy.OAuthHandler(self.consumer_key, self.consumer_secret)
+            auth.set_access_token(self.access_token, self.access_secret)
+            myAPI = tweepy.API(auth)
+            tweetsReceived = myAPI.user_timeline(screen_name=self.user, count=self.howManyTweets)
+            for ele in tweetsReceived:
+                # tweetsCollection = tweetsCollection + [ele.text]
+                tweetsCollection.append(ele.text)
+        else:
+            localJSON = json.load(JSON_LOCAL)
+            tweetsCollection.append(localJSON.text)
         return tweetsCollection
 
     def deleteUnwritable(self, input):
