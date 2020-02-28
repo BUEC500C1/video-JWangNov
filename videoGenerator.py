@@ -38,11 +38,11 @@ class VideoGen:
             myAPI = tweepy.API(auth)
             tweetsReceived = myAPI.user_timeline(screen_name=self.user, count=self.howManyTweets)
             for ele in tweetsReceived:
-                # tweetsCollection = tweetsCollection + [ele.text]
                 tweetsCollection.append(ele.text)
         else:
-            localJSON = json.load(str(JSON_LOCAL))
-            tweetsCollection.append(localJSON.text)
+            with open(JSON_LOCAL, 'r') as ff:
+                localJSON = json.load(ff.read())
+                tweetsCollection.append(localJSON.text)
         return tweetsCollection
 
     def deleteUnwritable(self, input):
