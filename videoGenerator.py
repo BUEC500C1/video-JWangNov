@@ -41,7 +41,7 @@ class VideoGen:
                 tweetsCollection.append(ele.text)
         else:
             with open(JSON_LOCAL, 'r') as ff:
-                localJSON = json.load(ff.read())
+                localJSON = json.load(ff)
                 tweetsCollection.append(localJSON.text)
         return tweetsCollection
 
