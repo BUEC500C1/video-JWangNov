@@ -166,3 +166,21 @@ dmypy.json
 
 
 task_2/myRealKeys
+
+
+### https://raw.github.com/github/gitignore/7ab549fcae8269fdd4004065470176f829d88200/Global/VirtualEnv.gitignore
+
+# Virtualenv
+# http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
+.Python
+[Bb]in
+[Ii]nclude
+[Ll]ib
+[Ll]ib64
+[Ll]ocal
+[Ss]cripts
+pyvenv.cfg
+.venv
+pip-selfcheck.json
+
+
