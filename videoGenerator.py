@@ -8,8 +8,8 @@ from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
 
-KEY_PATH = r'keys'
-# KEY_PATH = './myRealKeys'
+# KEY_PATH = r'keys'
+KEY_PATH = r'./myRealKeys'
 FONT_PATH = r'./28DaysLater.ttf'
 JSON_LOCAL = r'./local.json'
 
@@ -17,7 +17,7 @@ JSON_LOCAL = r'./local.json'
 class VideoGen:
     def __init__(self, user, howManyTweets, keys=KEY_PATH):
         self.user = user
-        self.imgPath = f'./img_{user}'
+        self.imgPath = './img_{}'.format(user)
         self.howManyTweets = howManyTweets
         self.keys = keys
         cfg = configparser.ConfigParser()
@@ -53,13 +53,13 @@ class VideoGen:
         img = Image.new('RGB', (1600, 500), color=(255, 235, 196))
         graph = ImageDraw.Draw(img)
         graph.text((5, 100), text, font=myFont, fill=(255, 255, 255))
-        imgName = f'{self.imgPath}/img{userIdx}{self.user}.png'
+        imgName = '{}/img{}{}.png'.format(self.imgPath, userIdx, self.user)
         img.save(imgName)
 
     def videoGen(self, videoName):
         # collect all images
-        if os.path.exists(f'{self.imgPath}/.DS_Store'):
-            os.remove(f'{self.imgPath}/.DS_Store')
+        if os.path.exists('{}/.DS_Store'.format(self.imgPath)):
+            os.remove('{}/.DS_Store'.format(self.imgPath))
         imgCollection = []
         for root, dirs, files in os.walk(self.imgPath):
             for file in files:
@@ -67,13 +67,13 @@ class VideoGen:
         imgCollection.sort()
 
         # generate video
-        video = cv2.VideoWriter(f'./{videoName}.avi', cv2.VideoWriter_fourcc(*'MJPG'), 0.333, (1600, 500))
+        video = cv2.VideoWriter('./{}.avi'.format(videoName), cv2.VideoWriter_fourcc(*'MJPG'), 0.333, (1600, 500))
         for ii in range(0, len(imgCollection)):
-            img = cv2.imread(f'{self.imgPath}/{imgCollection[ii]}')
+            img = cv2.imread('{}/{}'.format(self.imgPath, imgCollection[ii]))
             img = cv2.resize(img, (1600, 500))
             video.write(img)
         for eachImg in imgCollection:
-            os.remove(f'{self.imgPath}/{eachImg}')
+            os.remove('{}/{eachImg}'.format(self.imgPath, eachImg))
 
     def run(self):
         tweet_list = self.getTweets()
@@ -83,7 +83,7 @@ class VideoGen:
             os.mkdir(self.imgPath)
         for ii in range(len(tweet_list)):
             self.imgGen(self.deleteUnwritable(tweet_list[ii]), ii)
-        self.videoGen(f'TV_{self.user}')
+        self.videoGen('TV_{}'.format(self.user))
         os.rmdir(self.imgPath)
 
 

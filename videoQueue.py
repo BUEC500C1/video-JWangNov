@@ -18,14 +18,14 @@ class VideoQueue():
             self.processingItems.append(currT)
         else:
             self.myQueue.put(currT)
-            print(f'{username} is in queue now.')
+            print('{} is in queue now.'.format(username))
         return currT
 
     def genCurrVideo(self, username, howManyTweets):
         currVideo = VideoGen(username, howManyTweets)
-        print(f'Start generating {username}\'s video.')
+        print('Start generating {}\'s video.'.format(username))
         currVideo.run()
-        print(f'{username} DONE')
+        print('{} DONE'.format(username))
 
     def run(self):
         while not self.myQueue.empty():
