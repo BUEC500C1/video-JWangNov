@@ -50,9 +50,9 @@ class VideoGen:
 
     def imgGen(self, text, userIdx):
         myFont = ImageFont.truetype(FONT_PATH, 20)
-        img = Image.new('RGB', (1600, 500), color=(255, 235, 196))
+        img = Image.new('RGB', (1600, 500), color=(255, 255, 255))
         graph = ImageDraw.Draw(img)
-        graph.text((5, 100), text, font=myFont, fill=(255, 255, 255))
+        graph.text((5, 100), text, font=myFont, fill=(0, 0, 0))
         imgName = '{}/img{}{}.png'.format(self.imgPath, userIdx, self.user)
         img.save(imgName)
 
