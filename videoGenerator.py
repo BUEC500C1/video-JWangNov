@@ -8,8 +8,8 @@ from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
 
-# KEY_PATH = r'keys'
-KEY_PATH = r'./myRealKeys'
+KEY_PATH = r'keys'
+# KEY_PATH = r'./myRealKeys'
 FONT_PATH = r'./28DaysLater.ttf'
 JSON_LOCAL = r'./local.json'
 
