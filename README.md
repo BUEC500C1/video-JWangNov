@@ -27,3 +27,9 @@ Build Twitter Video Generator in Queue Frame
 `videoGenerator.py` generates tweeter video from 1 user.
 
 `videoQueue.py` generates videos in queue frame.
+
+
+## Web Service
+I use Flask to provide the web service.
+
+[](http://3.136.158.120:8421/)
