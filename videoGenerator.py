@@ -67,7 +67,8 @@ class VideoGen:
         imgCollection.sort()
 
         # generate video
-        video = cv2.VideoWriter('./{}.avi'.format(videoName), cv2.VideoWriter_fourcc(*'MJPG'), 0.333, (1600, 500))
+        # video = cv2.VideoWriter('./{}.avi'.format(videoName), cv2.VideoWriter_fourcc(*'MJPG'), 0.333, (1600, 500))
+        video = cv2.VideoWriter('./{}.mp4'.format(videoName), cv2.VideoWriter_fourcc(*'MP4V'), 0.333, (1600, 500))
         for ii in range(0, len(imgCollection)):
             img = cv2.imread('{}/{}'.format(self.imgPath, imgCollection[ii]))
             img = cv2.resize(img, (1600, 500))
