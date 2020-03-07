@@ -32,4 +32,6 @@ Build Twitter Video Generator in Queue Frame
 ## Web Service
 I use Flask to provide the web service.
 
-[](http://3.136.158.120:8421/)
+[URL](http://3.136.158.120:8421/)
+
+A simple flask [write-up](https://github.com/BUEC500C1/video-JWangNov/blob/master/flaskSetUp.md).
