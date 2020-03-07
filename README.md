@@ -5,6 +5,8 @@ Estimate the processing power need to execute such operations on your computer.
 Estimate the maximum number of such operations that can run on your system.
 
 ### FFmpeg
+[videoEncoder.py](https://github.com/BUEC500C1/video-JWangNov/blob/master/videoEncoder.py)
+
 Use FFmpeg to re-encode a video file:
 
 ```
@@ -24,14 +26,12 @@ Example video get from [here](https://www.youtube.com/watch?v=cw31vtWOXuk).
 ## Task 2
 Build Twitter Video Generator in Queue Frame
 
-`videoGenerator.py` generates tweeter video from 1 user.
+[videoGenerator.py](https://github.com/BUEC500C1/video-JWangNov/blob/master/videoGenerator.py) generates tweeter video from 1 user.
 
-`videoQueue.py` generates videos in queue frame.
+[videoQueue.py](https://github.com/BUEC500C1/video-JWangNov/blob/master/videoQueue.py) generates videos in queue frame.
 
 
 ## Web Service
-I use Flask to provide the web service.
-
-[URL](http://3.136.158.120:8421/)
+I use Flask to provide the web service. [URL](http://3.136.158.120:8421/) of the web index.
 
 A simple flask [write-up](https://github.com/BUEC500C1/video-JWangNov/blob/master/flaskSetUp.md).
